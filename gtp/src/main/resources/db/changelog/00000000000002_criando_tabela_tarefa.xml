@@ -1,0 +1,37 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog 
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="1" author="Joao Pedro Calixto">
+        <createTable tableName="TAREFA">
+            <column name="ID" type="BIGINT" remarks="Id da tarefa" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="TAREFA_PK" nullable="false"/>
+            </column>
+            <column name="TITULO" type="varchar(80)" remarks="Titulo da tarefa" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="DESCRICAO" type="varchar(400)" remarks="Desricao da tarefa" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="DATA" type="date" remarks="Data da tarefa" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="IMPORTANCIA" type="number" remarks="Nivel de importancia da tarefa" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="ID_USUARIO" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="Joao Pedro Calixto">
+        <addForeignKeyConstraint
+                baseColumnNames="ID_USUARIO"
+                baseTableName="TAREFA"
+                constraintName="FK_USUARIO"
+                referencedColumnNames="ID"
+                referencedTableName="USUARIO"/>
+    </changeSet>
+</databaseChangeLog>
