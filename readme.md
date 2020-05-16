@@ -7,3 +7,5 @@ Basta cadastrar seu usuário e adicionar suas tarefas
 ##Tecnologias utilizadas##
 
 Para desenvolver esse sistema web foram usados as seguintes tecnologias: Spring, React, Postgres.
+
+###EM CONSTRUÇÃO###
